@@ -15,9 +15,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
-
+    public interface OnItemClickListener {
+        void onItemClick(Result item);
+    }
     private List<Result> mlist = Collections.emptyList();
+    private final OnItemClickListener listener;
 
+    public UserAdapter(OnItemClickListener listener) {
+        this.listener = listener;
+    }
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -27,7 +33,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.bind(mlist.get(position));
+        holder.bind(mlist.get(position), listener);
     }
 
     @Override
@@ -55,11 +61,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             tvCity = itemView.findViewById(R.id.tvCity);
         }
 
-        public void bind(Result result) {
+        public void bind(final Result result, final OnItemClickListener listener) {
             tvName.setText(result.getName().getFirst());
             tvLastName.setText(result.getName().getLast());
             tvCity.setText(result.getLocation().getCity());
             Glide.with(ivAvatar).load(result.getPicture().getMedium()).into(ivAvatar);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(result);
+                }
+            });
         }
+
     }
 }

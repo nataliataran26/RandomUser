@@ -1,10 +1,13 @@
 
 package com.nataliiataran.randomuser.api;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Login {
+public class Login implements Parcelable {
 
     @SerializedName("username")
     @Expose
@@ -73,4 +76,42 @@ public class Login {
         this.sha256 = sha256;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.username);
+        dest.writeString(this.password);
+        dest.writeString(this.salt);
+        dest.writeString(this.md5);
+        dest.writeString(this.sha1);
+        dest.writeString(this.sha256);
+    }
+
+    public Login() {
+    }
+
+    protected Login(Parcel in) {
+        this.username = in.readString();
+        this.password = in.readString();
+        this.salt = in.readString();
+        this.md5 = in.readString();
+        this.sha1 = in.readString();
+        this.sha256 = in.readString();
+    }
+
+    public static final Creator<Login> CREATOR = new Creator<Login>() {
+        @Override
+        public Login createFromParcel(Parcel source) {
+            return new Login(source);
+        }
+
+        @Override
+        public Login[] newArray(int size) {
+            return new Login[size];
+        }
+    };
 }

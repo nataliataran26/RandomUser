@@ -10,10 +10,10 @@
         android:layout_height="match_parent"
         tools:context=".UserDetailsActivity">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +27,10 @@
             android:layout_marginTop="8dp"
             android:textColor="@color/colorBlack"
             android:textStyle="bold"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/ivAvatar"
             tools:text="@tools:sample/full_names" />
 
 
@@ -40,6 +41,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
@@ -52,6 +54,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth"
@@ -62,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="40dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,12 +80,12 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
 
-            <EditText
-                android:id="@+id/etPhone"
+            <TextView
+                android:id="@+id/tvPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
                 android:text="+1(754)666-1713" />
 
         </LinearLayout>
@@ -92,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="40dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,11 +110,12 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
 
-            <EditText
-                android:id="@+id/etEmail"
+            <TextView
+                android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
                 android:text="test@gmail.com" />
 
         </LinearLayout>
@@ -121,7 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="40dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,10 +140,12 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
 
-            <EditText
-                android:id="@+id/etAddress"
+            <TextView
+                android:id="@+id/tvAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
                 tools:text="Jamaica, Carribbean" />
 
         </LinearLayout>

@@ -1,5 +1,6 @@
 package com.nataliiataran.randomuser;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.nataliiataran.randomuser.api.ApiResponse;
 import com.nataliiataran.randomuser.api.Result;
@@ -31,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
         rvUserList = findViewById(R.id.rvUserList);
         progressBar = findViewById(R.id.progressBar);
 
-        final UserAdapter adapter = new UserAdapter();
+        final UserAdapter adapter = new UserAdapter(new UserAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Result item) {
+                Toast.makeText(getApplicationContext(), "Item Clicked", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), UserDetailsActivity.class);
+                intent.putExtra("user", item);
+                startActivity(intent);
+            }
+        });
         rvUserList.setLayoutManager(new LinearLayoutManager(this));
         rvUserList.setAdapter(adapter);
 

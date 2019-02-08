@@ -1,10 +1,13 @@
 
 package com.nataliiataran.randomuser.api;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Result {
+public class Result implements Parcelable {
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -138,4 +141,54 @@ public class Result {
         this.nat = nat;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.gender);
+        dest.writeParcelable(this.name, flags);
+        dest.writeParcelable(this.location, flags);
+        dest.writeString(this.email);
+        dest.writeParcelable(this.login, flags);
+        dest.writeParcelable(this.dob, flags);
+        dest.writeParcelable(this.registered, flags);
+        dest.writeString(this.phone);
+        dest.writeString(this.cell);
+        dest.writeParcelable(this.id, flags);
+        dest.writeParcelable(this.picture, flags);
+        dest.writeString(this.nat);
+    }
+
+    public Result() {
+    }
+
+    protected Result(Parcel in) {
+        this.gender = in.readString();
+        this.name = in.readParcelable(Name.class.getClassLoader());
+        this.location = in.readParcelable(Location.class.getClassLoader());
+        this.email = in.readString();
+        this.login = in.readParcelable(Login.class.getClassLoader());
+        this.dob = in.readParcelable(Dob.class.getClassLoader());
+        this.registered = in.readParcelable(Registered.class.getClassLoader());
+        this.phone = in.readString();
+        this.cell = in.readString();
+        this.id = in.readParcelable(Id.class.getClassLoader());
+        this.picture = in.readParcelable(Picture.class.getClassLoader());
+        this.nat = in.readString();
+    }
+
+    public static final Creator<Result> CREATOR = new Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel source) {
+            return new Result(source);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
 }
