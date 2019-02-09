@@ -66,7 +66,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         tvDateOfBirth.setText(formattedTime);
         tvAge.setText(result.getDob().getAge() + " years old");
         tvGender.setText(result.getGender());
-        if (result.getId().getValue() == "null") {
+        if (result.getId().getValue() == null) {
             llId.setVisibility(View.GONE);
         } else {
             llId.setVisibility(View.VISIBLE);
