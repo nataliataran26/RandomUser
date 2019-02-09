@@ -8,13 +8,14 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UserDetailsActivity">
+        tools:context=".UserDetailsActivity"
+        android:layout_marginBottom="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivAvatar"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,12 +28,11 @@
             android:layout_marginTop="8dp"
             android:textColor="@color/colorBlack"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivAvatar"
             tools:text="@tools:sample/full_names" />
-
 
         <TextView
             android:id="@+id/tvDateOfBirth"
@@ -41,10 +41,23 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="25 years old" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth"
             tools:text="25 years old" />
 
         <TextView
@@ -54,14 +67,14 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge"
             tools:text="male" />
 
         <LinearLayout
-            android:id="@+id/llPhone"
+            android:id="@+id/llId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -73,10 +86,42 @@
             app:layout_constraintTop_toBottomOf="@+id/tvGender">
 
             <TextView
+                android:id="@+id/tvIdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Identification Number"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="190dp" />
+
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/colorBlack"
+                android:text="+1(754)666-1713" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llId">
+
+            <TextView
                 android:id="@+id/tvPhoneLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cell Phone"
+                android:textSize="16sp"
+                android:text="Phone"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
 
@@ -84,7 +129,38 @@
                 android:id="@+id/tvPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/colorBlack"
+                android:text="+1(754)666-1713" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llPhone">
+
+            <TextView
+                android:id="@+id/tvCellLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="Cell Phone"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="190dp" />
+
+            <TextView
+                android:id="@+id/tvCell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:textColor="@color/colorBlack"
                 android:text="+1(754)666-1713" />
 
@@ -100,12 +176,13 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llPhone">
+            app:layout_constraintTop_toBottomOf="@+id/llCell">
 
             <TextView
                 android:id="@+id/tvEmailLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:text="Email"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
@@ -114,7 +191,7 @@
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textColor="@color/colorBlack"
                 android:text="test@gmail.com" />
 
@@ -136,6 +213,7 @@
                 android:id="@+id/tvAddressLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:text="Address"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="190dp" />
@@ -144,7 +222,7 @@
                 android:id="@+id/tvAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textColor="@color/colorBlack"
                 tools:text="Jamaica, Carribbean" />
 

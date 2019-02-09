@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         final UserAdapter adapter = new UserAdapter(new UserAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Result item) {
-                Toast.makeText(getApplicationContext(), "Item Clicked", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), UserDetailsActivity.class);
                 intent.putExtra("user", item);
                 startActivity(intent);
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         rvUserList.setAdapter(adapter);
 
         RetrofitInterface client = RetrofitClient.getClient().create(RetrofitInterface.class);
-        client.fetchUsers(10).enqueue(new Callback<ApiResponse>() {
+        client.fetchUsers(20).enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 List<Result> mlist = response.body().getResults();
