@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +29,9 @@ public class UserDetailsActivity extends AppCompatActivity {
     private TextView tvGender;
     private TextView tvId;
     private TextView tvPhone;
-    private TextView tvCell;
     private TextView tvEmail;
     private TextView tvAddress;
+    private LinearLayout llId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,9 @@ public class UserDetailsActivity extends AppCompatActivity {
         tvGender = findViewById(R.id.tvGender);
         tvId = findViewById(R.id.tvId);
         tvPhone = findViewById(R.id.tvPhone);
-        tvCell = findViewById(R.id.tvCell);
         tvEmail = findViewById(R.id.tvEmail);
         tvAddress = findViewById(R.id.tvAddress);
+        llId = findViewById(R.id.llId);
 
         Result result = getIntent().getExtras().getParcelable("user");
 
@@ -65,9 +66,13 @@ public class UserDetailsActivity extends AppCompatActivity {
         tvDateOfBirth.setText(formattedTime);
         tvAge.setText(result.getDob().getAge() + " years old");
         tvGender.setText(result.getGender());
-        tvId.setText(result.getId().getName() + " " + result.getId().getValue());
+        if (result.getId().getValue() == "null") {
+            llId.setVisibility(View.GONE);
+        } else {
+            llId.setVisibility(View.VISIBLE);
+            tvId.setText(result.getId().getName() + " " + result.getId().getValue());
+        }
         tvPhone.setText(result.getPhone());
-        tvCell.setText(result.getCell());
         tvEmail.setText(result.getEmail());
         tvAddress.setText(result.getLocation().getCity() + ", " + result.getLocation().getState());
 
@@ -122,7 +127,7 @@ public class UserDetailsActivity extends AppCompatActivity {
                     callUser();
                 } else {
                     // Permission Denied
-                    Toast.makeText(UserDetailsActivity.this, "WRITE_CONTACTS Denied", Toast.LENGTH_SHORT)
+                    Toast.makeText(UserDetailsActivity.this, "Need Permission!", Toast.LENGTH_SHORT)
                             .show();
                 }
                 break;

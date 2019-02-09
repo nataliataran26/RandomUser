@@ -74,7 +74,6 @@
             tools:text="male" />
 
         <LinearLayout
-                     android:visibility="gone"
             android:id="@+id/llId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -137,38 +136,6 @@
         </LinearLayout>
 
         <LinearLayout
-                      android:visibility="gone"
-            android:id="@+id/llCell"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llPhone">
-
-            <TextView
-                android:id="@+id/tvCellLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Cell Phone"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="190dp" />
-
-            <TextView
-                android:id="@+id/tvCell"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/colorBlack"
-                android:text="+1(754)666-1713" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/llEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -178,7 +145,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llCell">
+            app:layout_constraintTop_toBottomOf="@+id/llPhone">
 
             <TextView
                 android:id="@+id/tvEmailLabel"
