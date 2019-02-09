@@ -74,6 +74,7 @@
             tools:text="male" />
 
         <LinearLayout
+                     android:visibility="gone"
             android:id="@+id/llId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -136,6 +137,7 @@
         </LinearLayout>
 
         <LinearLayout
+                      android:visibility="gone"
             android:id="@+id/llCell"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
